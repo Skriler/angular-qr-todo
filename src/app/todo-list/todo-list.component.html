@@ -1,0 +1,13 @@
+<div class="todo-list-wrapper mat-card mat-elevation-z8">
+  <h1>TODO LIST</h1>
+  <button mat-raised-button color="primary" (click)="openDialog('add')">ADD TODO</button>
+  <zxing-scanner (scanSuccess)="scanSuccessHandler($event)"></zxing-scanner>
+
+  <div *ngFor="let item of data"
+       class="todo-item mat-card mat-elevation-z4">
+    <qrcode  [qrdata]="formatObj(item)" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+    <button (click)="deleteItem(item)" class="delete-button" mat-fab color="warn">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>

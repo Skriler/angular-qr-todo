@@ -1,0 +1,21 @@
+<div class="modal-wrapper">
+  <form action="" [formGroup]="itemForm" style="display: inline-flex;flex-direction: column">
+    <mat-form-field>
+      <input formControlName="subject" required type="text" matInput placeholder="Subject: ">
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="message" required type="text" matInput placeholder="Message: ">
+    </mat-form-field>
+  </form>
+  <button mat-raised-button
+          *ngIf="data.method === 'add'"
+          (click)="addItem()"
+          [disabled]="itemForm.invalid">
+    ADD TODO ITEM
+  </button>
+  <button mat-raised-button
+          *ngIf="data.method === 'show'"
+          (click)="closeModal()">
+    Close
+  </button>
+</div>
